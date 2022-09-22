@@ -7,21 +7,32 @@
     vertical-align: baseline;
     background: transparent;
     list-style: none;
+    text-decoration: none;
   }
 
+  header{
+    width: 100%;
+    height: 50px;
+    background-color: #ECECEC;
+  }
 
   header ul {
     display: flex;
+    justify-content: space-between;
   }
 
   section ul.card {
     display: flex;
     justify-content: space-around;
+    position: relative;
+    overflow: hidden;
   }
 
   section ul.card li{
-    width: 200px;
+    width: 260;
+    min-width: 260px;
     height: 100%;
+
   }
 
   section ul.card div.info-juego{
@@ -38,11 +49,12 @@
   }
 
   section ul.card button{
-    background-color: rgba(50, 50, 252, 0.795);
-    padding: 5px;
+    background-color: #1F71B5;
     border-radius: 10px;
+
   }
 
   ul.card button a{
     color: white;
+    
   }
