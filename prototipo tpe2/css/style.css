@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    list-style: none;
+  }
+
+
+  header ul {
+    display: flex;
+  }
+
+  section ul.card {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  section ul.card li{
+    width: 200px;
+    height: 100%;
+  }
+
+  section ul.card div.info-juego{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+
+  }
+
+  section ul.card img {
+    width: 100%;
+    height: 100%;
+  }
+
+  section ul.card button{
+    background-color: rgba(50, 50, 252, 0.795);
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  ul.card button a{
+    color: white;
+  }
