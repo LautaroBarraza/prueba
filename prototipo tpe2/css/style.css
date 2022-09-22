@@ -9,7 +9,10 @@
     list-style: none;
     text-decoration: none;
   }
-
+  body{
+    background-color: #FAFAFA;
+  }
+  /*header*/
   header{
     width: 100%;
     height: 50px;
@@ -21,40 +24,167 @@
     justify-content: space-between;
   }
 
-  section ul.card {
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    overflow: hidden;
+  /*main*/
+
+  main{
+    display: grid;
+    grid-template-areas: ". section .";
+    grid-template-columns: 1fr 10fr 1fr;
   }
+/*section */
 
-  section ul.card li{
-    width: 260;
-    min-width: 260px;
-    height: 100%;
+section.juego{
+  grid-area: section;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
 
-  }
+/*contenedor y flechas*/
+section.juego  .boton-izquierda, section.juego .boton-derecha{
+position: absolute;
+font-size: 40px;
+top: 50%;
+cursor: pointer;
+z-index: 9;
+}
 
-  section ul.card div.info-juego{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 50px;
+section.juego  .boton-izquierda{
+  left: 0%;
+}
+section.juego  .boton-derecha {
+  right: 0%;
+}
 
-  }
 
-  section ul.card img {
-    width: 100%;
-    height: 100%;
-  }
+/*titulos y controles*/
 
-  section ul.card button{
-    background-color: #1F71B5;
-    border-radius: 10px;
+section.juego .juego-categoria{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  font-size: 31px;
+  line-height: 36px;
+  margin: 10px 0;
+  text-transform: capitalize;
+}
 
-  }
+/*carrusel*/
+section.juego .juego-carrusel{
+  min-height: 416px;
+  margin: 2px 0;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 15px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  align-items: flex-start;
+}
 
-  ul.card button a{
-    color: white;
-    
-  }
+
+
+/*cards*/
+
+section.juego .juego-carrusel .juego-card{
+  min-width: 260px;
+  max-height: 412px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.21);
+  padding: 2px 2px 0 2px;
+  background-color: #ffffff;
+  transition: all 1s;
+  padding-bottom: 15px;
+}
+
+
+section.juego .juego-carrusel .juego-card:hover{
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.51);
+}
+
+/*img card*/
+section.juego .juego-carrusel .juego-card .juego-img{
+  display: flex;
+  justify-content: center;
+}
+section.juego .juego-carrusel .juego-card .juego-img img{
+  width: 100%;
+  height: 100%;
+  max-width: 250px;
+  max-height: 250px;
+  border-radius: 8px;
+}
+
+section.juego .juego-carrusel .juego-card .juego-info{
+  display: grid;
+  grid-template-areas:  "titulo titulo"
+              "genero genero"
+              "info info";
+              grid-template-columns: 1fr 1fr;
+              grid-template-rows: 2fr 1fr 2fr;
+  padding: 0 19px;
+}
+/*info card*/
+
+/*genero y titulo*/
+section.juego .juego-carrusel .juego-card .juego-info .juego-titulo{
+  grid-area: titulo;
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  font-weight: 300;
+}
+section.juego .juego-carrusel .juego-card .juego-info .juego-genero{
+  grid-area: genero;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+
+/*seccion info especial del tipo de juego*/
+section.juego .juego-carrusel .juego-card .juego-info .juego-info-tipo{
+  grid-area: info;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+
+
+section.juego .juego-carrusel .juego-card .juego-info .juego-precio{
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: bold;
+  
+}
+
+/*boton card*/
+
+section.juego .juego-carrusel .juego-card .juego-info .juego-boton-accion{
+  background-color: #FF781C;
+  height: 43px;
+  width: 135px;
+  border-radius: 15px;
+  transition: all 1s;
+}
+
+section.juego .juego-carrusel .juego-card .juego-info .juego-boton-accion:hover{
+  background-color: #EF6100;
+}
+
+section.juego .juego-carrusel .juego-card .juego-info .juego-boton-accion:active{
+  background-color: #B84A00;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.44);
+  
+}
+
+section.juego .juego-carrusel .juego-card .juego-info .juego-boton-accion a{
+  color: white;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 30.47px;
+  text-align: center;
+}
+
+
+
