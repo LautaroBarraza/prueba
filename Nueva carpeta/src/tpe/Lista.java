@@ -31,9 +31,10 @@ public class Lista<T> implements Iterable<Comparable>{
 		}
 		size++;
 	}
-
+	
+	
+	//ordenar dado un comparator
 	public void ordenar(Comparator c) {
-
 		Nodo current = head, index = null;
 		 
         Comparable<T> temp;
@@ -58,40 +59,30 @@ public class Lista<T> implements Iterable<Comparable>{
         }
 	}
 	
-	public Nodo<T> delete(Comparable data){
-		Nodo<T> nodoRetornar = null;
-		
-		if(size == 0) {
-			return null;
-		}
-		if(size==1) {
-			nodoRetornar= head;
-			head=null;
-			ultimo=null;
-			size--;
-			return nodoRetornar;
-		}
-		
-		Nodo<T> nodoAnterior= findBefore(data);
-		
-		if(nodoAnterior != null) {
-			if(ultimo.getData().equals(data)) {
-				nodoAnterior.setNext(null);
-				ultimo=nodoAnterior;
-			}else {
-				nodoAnterior.setNext(nodoAnterior.getNext().getNext());
-			}
-			size--;
-		}else {
-			nodoAnterior=head;
+	public Comparable delete(int pos) {
+		Nodo<T> current = head;
+		int i=0;
+		if(pos==0) {
 			head=head.getNext();
-			return nodoAnterior;
-			
-			
+			size--;
+			return current.getData();
+		}
+		while(current!=null && i<size) {
+			if(i==pos-1) {
+				Comparable aux = current.getNext().getData();
+				current.setNext(current.getNext().getNext());
+				size--;
+				return aux;
+			}else {
+				i++;
+				current= current.getNext();
+			}
 		}
 		return null;
+		
 	}
 	
+	//borrar todas las ocurrencias dado un elemento
 	public void deleteAllOcurrences(Comparable data){
 		
 		while (head != null && head.getData().equals(data)) {
@@ -109,34 +100,13 @@ public class Lista<T> implements Iterable<Comparable>{
 			}
 		}
 	}
-	
-	
-	
-
-	
-	public Nodo<T> findBefore(Comparable data){
-		
-		if(head.getData().equals(data)) {
-			return null;
-		}
-		
-		Nodo<T> nodo = head;
-		
-		while(nodo.getNext()!=null) {
-			if(nodo.getNext().getData().equals(data)) {
-				return nodo;
-			}
-			nodo= nodo.getNext();
-		}
-		return null;
-	}
-	
-	public Nodo<T> find(Comparable data) {
+	//encontrar un elemento dado el elemento
+	public Comparable find(Comparable data) {
 		if(head==null) {
 			return null;
 		}
 		if(head.getData().equals(data)) {
-			return head;
+			return head.getData();
 		}
 		
 		Nodo<T> i=head;
@@ -144,11 +114,10 @@ public class Lista<T> implements Iterable<Comparable>{
 		while(i.getNext()!=null) {
 			i=i.getNext();
 			if(i.getData().equals(data)) {
-				return i;
+				return i.getData();
 			}
 		}
-		return null;
-		
+		return null;	
 	}
 	
 	public String toString() {

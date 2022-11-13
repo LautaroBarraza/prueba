@@ -25,9 +25,9 @@ public class Main {
 		Persona p6 = new Persona("pepe", "messi");
 		
 		l.add(p5);
-		l.add(p6);
-		l.add(p6);
-		l.add(p6);
+		l.add(p1);
+		l.add(p2);
+		l.add(p4);
 		l.add(p6);
 		l.add(p3);
 
@@ -40,8 +40,8 @@ public class Main {
 		l.ordenar(c2);
 		System.out.println(l);
 		System.out.println(l.getSize());
-		l.deleteAllOcurrences(p6);
-		System.out.println(l);
+		System.out.println(l.delete(0));
+		System.out.println(l.find(p6));
 		System.out.println(l.getSize());
 	
 	}
