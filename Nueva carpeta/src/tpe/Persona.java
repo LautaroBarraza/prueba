@@ -19,7 +19,7 @@ public class Persona implements Comparable<Persona>{
 	public boolean equals(Object o) {
 		try {
 			Persona p = (Persona)o;
-			return this.getNombre().equals(p.getNombre());
+			return this.getNombre().equals(p.getNombre()) && this.getApellido().equals(p.getApellido());
 		}catch(Exception e) {
 			return false;
 		}

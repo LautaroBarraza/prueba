@@ -12,6 +12,10 @@ public class Lista<T> implements Iterable<Comparable>{
 		// TODO Auto-generated constructor stub
 	}
 	
+	public int getSize() {
+		return size;
+	}
+	
 	public void add(Comparable data) {
 		// creo un nodo para encapsular
 		Nodo<T> nodo = new Nodo<T>(data);
@@ -88,6 +92,28 @@ public class Lista<T> implements Iterable<Comparable>{
 		return null;
 	}
 	
+	public void deleteAllOcurrences(Comparable data){
+		
+		while (head != null && head.getData().equals(data)) {
+			head = head.getNext();
+			size--;
+		}
+		Nodo<T> current=head;
+		while (current != null && current.getNext() != null) {
+			if (current.getNext().getData().equals(data)) {
+				current.setNext(current.getNext().getNext());
+				size--;
+			}
+			else {
+				current = current.getNext();
+			}
+		}
+	}
+	
+	
+	
+
+	
 	public Nodo<T> findBefore(Comparable data){
 		
 		if(head.getData().equals(data)) {
@@ -126,15 +152,19 @@ public class Lista<T> implements Iterable<Comparable>{
 	}
 	
 	public String toString() {
-		String info="[ ";
-		Nodo<T> i = head;
-		info += i +", ";
-		while (i.getNext()!=null) {
-			i=i.getNext();
-			info += i + ", ";
-			
+		if(head!=null && ultimo!=null) {
+			String info="[ ";
+			Nodo<T> i = head;
+			info += i +", ";
+			while (i.getNext()!=null) {
+				i=i.getNext();
+				info += i + ", ";
+				
+			}
+			return info +" ]";
 		}
-		return info +" ]";
+			return "";
+
 	}
 
 	@Override
