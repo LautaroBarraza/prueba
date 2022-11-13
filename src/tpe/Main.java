@@ -12,9 +12,9 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		Lista<Persona> l= new Lista<Persona>();
-		Comparator<Comparable> c = new OrdenarApellido();
-		Comparator<Comparable> c1 = new OrdenarNombre();
-		Comparator<Comparable> c2 = new OrdenarMultiple(c, c1);
+		Comparator c = new OrdenarApellido();
+		Comparator c1 = new OrdenarNombre();
+		Comparator c2 = new OrdenarMultiple(c, c1);
 		
 		Persona p1 = new Persona("juan", "rodriguez");
 		Persona p2 = new Persona("jero", "martinez");
@@ -34,6 +34,7 @@ public class Main {
 			System.out.println(p);
 		}
 		System.out.println(l);
+		
 		l.ordenar(c2);
 		l.delete(p2);
 		System.out.println(l);

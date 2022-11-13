@@ -2,16 +2,16 @@ package tpe;
 
 import java.util.Comparator;
 
-public class OrdenarMultiple implements Comparator<Comparable>{
+public class OrdenarMultiple implements Comparator<Persona>{
 
-	Comparator<Comparable> c1, c2;
-	public OrdenarMultiple(Comparator<Comparable> c1, Comparator<Comparable> c2) {
+	Comparator<Persona> c1, c2;
+	public OrdenarMultiple(Comparator<Persona> c1, Comparator<Persona> c2) {
 		this.c1=c1;
 		this.c2=c2;
 		// TODO Auto-generated constructor stub
 	}
 	@Override
-	public int compare(Comparable o1, Comparable o2) {
+	public int compare(Persona o1, Persona o2) {
 		// TODO Auto-generated method stub
 		int resultado = c1.compare(o1, o2);
 		if(resultado==0) {

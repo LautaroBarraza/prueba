@@ -2,15 +2,15 @@ package tpe;
 
 public class Nodo<T> {
 
-	Comparable<T> data;
+	Comparable data;
 	Nodo<T> next =null;
-	public Nodo(Comparable<T> data) {
+	public Nodo(Comparable data) {
 		this.data=data;
 	}
-	public Comparable<T> getData() {
+	public Comparable getData() {
 		return data;
 	}
-	public void setData(Comparable<T> data) {
+	public void setData(Comparable data) {
 		this.data = data;
 	}
 	public Nodo<T> getNext() {

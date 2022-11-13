@@ -3,7 +3,7 @@ package tpe;
 import java.util.Comparator;
 import java.util.Iterator;
 
-public class Lista<T> implements Iterable<Comparable<T>>{
+public class Lista<T> implements Iterable<Comparable>{
 
 	Nodo<T> head=null;
 	Nodo<T> ultimo=null;
@@ -12,11 +12,14 @@ public class Lista<T> implements Iterable<Comparable<T>>{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void add(Comparable<T> data) {
+	public void add(Comparable data) {
+		// creo un nodo para encapsular
 		Nodo<T> nodo = new Nodo<T>(data);
+		//si ultimo null, primero y ultimo se vuelven el nuevo nodo
 		if(ultimo==null) {
 			head=nodo;
 			ultimo=nodo;
+			//si ultimo no es null, el ultimo se vuelve el nuevo nodo.
 		}else {
 			ultimo.setNext(nodo);
 			ultimo=nodo;
@@ -25,7 +28,7 @@ public class Lista<T> implements Iterable<Comparable<T>>{
 		size++;
 	}
 
-	public void ordenar(Comparator<Comparable> c) {
+	public void ordenar(Comparator c) {
 
 		Nodo current = head, index = null;
 		 
@@ -51,7 +54,7 @@ public class Lista<T> implements Iterable<Comparable<T>>{
         }
 	}
 	
-	public Nodo<T> delete(Comparable<T> data){
+	public Nodo<T> delete(Comparable data){
 		Nodo<T> nodoRetornar = null;
 		
 		if(size == 0) {
@@ -85,7 +88,7 @@ public class Lista<T> implements Iterable<Comparable<T>>{
 		return null;
 	}
 	
-	public Nodo<T> findBefore(Comparable<T> data){
+	public Nodo<T> findBefore(Comparable data){
 		
 		if(head.getData().equals(data)) {
 			return null;
@@ -102,7 +105,7 @@ public class Lista<T> implements Iterable<Comparable<T>>{
 		return null;
 	}
 	
-	public Nodo<T> find(Comparable<T> data) {
+	public Nodo<T> find(Comparable data) {
 		if(head==null) {
 			return null;
 		}
@@ -135,12 +138,12 @@ public class Lista<T> implements Iterable<Comparable<T>>{
 	}
 
 	@Override
-	public Iterator<Comparable<T>> iterator() {
+	public Iterator<Comparable> iterator() {
 		// TODO Auto-generated method stub
 		return new ListaIterable();
 	}
 
-	private class ListaIterable implements Iterator<Comparable<T>>{
+	private class ListaIterable implements Iterator<Comparable>{
 		
 		Nodo<T> actual = null;
 		
@@ -158,7 +161,7 @@ public class Lista<T> implements Iterable<Comparable<T>>{
 		}
 
 		@Override
-		public Comparable<T> next() {
+		public Comparable next() {
 			if (actual == null && head !=null) {
 				actual = head;
 				return head.getData();
