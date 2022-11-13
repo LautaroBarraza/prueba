@@ -1,4 +1,4 @@
-package tpe;
+package listaVinculada;
 
 import java.util.Comparator;
 

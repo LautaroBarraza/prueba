@@ -1,4 +1,4 @@
-package tpe;
+package listaVinculada;
 
 public class Persona implements Comparable<Persona>{
 	String nombre;

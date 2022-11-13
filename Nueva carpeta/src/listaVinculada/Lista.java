@@ -1,4 +1,4 @@
-package tpe;
+package listaVinculada;
 
 import java.util.Comparator;
 import java.util.Iterator;
@@ -34,7 +34,7 @@ public class Lista<T> implements Iterable<Comparable>{
 	
 	
 	//ordenar dado un comparator
-	public void ordenar(Comparator c) {
+	public void sort(Comparator c) {
 		Nodo current = head, index = null;
 		 
         Comparable<T> temp;
@@ -101,21 +101,24 @@ public class Lista<T> implements Iterable<Comparable>{
 		}
 	}
 	//encontrar un elemento dado el elemento
-	public Comparable find(Comparable data) {
+	public Integer find(Comparable data) {
+		int pos=0;
 		if(head==null) {
 			return null;
 		}
 		if(head.getData().equals(data)) {
-			return head.getData();
+			return pos;
 		}
 		
 		Nodo<T> i=head;
 		
 		while(i.getNext()!=null) {
+			pos++;
 			i=i.getNext();
 			if(i.getData().equals(data)) {
-				return i.getData();
+				return pos;
 			}
+			
 		}
 		return null;	
 	}

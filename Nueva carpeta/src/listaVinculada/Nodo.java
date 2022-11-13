@@ -1,4 +1,4 @@
-package tpe;
+package listaVinculada;
 
 public class Nodo<T> {
 
