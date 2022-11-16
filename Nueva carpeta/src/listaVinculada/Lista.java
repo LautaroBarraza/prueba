@@ -7,10 +7,16 @@ public class Lista<T> implements Iterable<Comparable>{
 
 	Nodo<T> head=null;
 	int size=0;
-	Comparator orden;
+	Comparator orden=null;
+	
+	/**constructor vacio en caso de que no se quiera especificar un comparator y se ordene por orden natural**/
+	public Lista() {
+
+	}
+	/**constructor con criterio de orden especificado**/
 	public Lista(Comparator c) {
 		this.orden=c;
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	public void setOrden(Comparator c) {
@@ -22,12 +28,11 @@ public class Lista<T> implements Iterable<Comparable>{
 		return size;
 	}
 	
-	
+	/**agrega elemento al final y despues ordena la lista**/
 	public void add(Comparable data) {
 		// creo un nodo para encapsular
 		Nodo<T> nodo = new Nodo<T>(data);
 		Nodo<T> current=head;
-		//si ultimo null, primero y ultimo se vuelven el nuevo nodo
 		if(this.head == null) {
 			head=nodo;
 		}else {
@@ -41,7 +46,7 @@ public class Lista<T> implements Iterable<Comparable>{
 	}
 	
 	
-	//ordenar dado un comparator
+	/**si el comparator no esta especificado ordena por orden natural y sino ordena por comparator**/
 	private void sort() {
 		Nodo current = head, index = null;
         Comparable<T> temp;
@@ -54,11 +59,20 @@ public class Lista<T> implements Iterable<Comparable>{
                 index = current.getNext();
                 while (index != null) {
                     // si la data del current es mayor que la de index, las roto entre si
-                    if (this.orden.compare(current.getData(), index.getData())>0) {
-                        temp = current.getData();
-                        current.setData(index.getData());
-                        index.setData(temp);
-                    }
+                	if(this.orden==null) {
+                        if (current.getData().compareTo(index.getData())>0) {
+                            temp = current.getData();
+                            current.setData(index.getData());
+                            index.setData(temp);
+                        }
+                	}else {
+                        if (this.orden.compare(current.getData(), index.getData())>0) {
+                            temp = current.getData();
+                            current.setData(index.getData());
+                            index.setData(temp);
+                        }
+                	}
+
                     index = index.getNext();
                 }
                 current = current.getNext();
@@ -66,6 +80,7 @@ public class Lista<T> implements Iterable<Comparable>{
         }
 	}
 	
+	/**borra un elemento dada una posicion**/
 	public Comparable delete(int pos) {
 		Nodo<T> current = head;
 		int i=0;
@@ -89,7 +104,7 @@ public class Lista<T> implements Iterable<Comparable>{
 		
 	}
 	
-	//borrar todas las ocurrencias dado un elemento
+	/**borrar todas las ocurrencias dado un elemento**/
 	public void deleteAllOcurrences(Comparable data){
 		
 		while (head != null && head.getData().equals(data)) {
@@ -107,7 +122,7 @@ public class Lista<T> implements Iterable<Comparable>{
 			}
 		}
 	}
-	//encontrar un elemento dado el elemento
+	/**encontrar un elemento dado el elemento**/
 	public Integer find(Comparable data) {
 		int pos=0;
 		if(head==null) {

@@ -2,17 +2,19 @@ package alumnos;
 
 import java.util.ArrayList;
 
+import listaVinculada.Lista;
+
 public class Alumno implements Comparable<Alumno> {
 
 	String nombre,apellido;
 	int dni,edad;
-	ArrayList<String> intereses;
+	Lista<String> intereses;
 	public Alumno(String nombre,String apellido, int edad, int dni) {
 		this.nombre=nombre;
 		this.apellido=apellido;
 		this.dni=dni;
 		this.edad=edad;
-		this.intereses= new ArrayList<String>();		
+		this.intereses= new Lista<String>();		
 	}
 	protected String getNombre() {
 		return nombre;
@@ -40,7 +42,7 @@ public class Alumno implements Comparable<Alumno> {
 	}
 	
 	public void addInteres(String i) {
-		if(!this.intereses.contains(i)) {
+		if(this.intereses.find(i)==null) {
 			this.intereses.add(i);
 		}
 	}

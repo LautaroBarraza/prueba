@@ -16,6 +16,12 @@ public class Main {
 		Lista<Alumno> listaAlumno= new Lista<Alumno>(c1);
 		
 		Alumno a1 = new Alumno("juan", "perez", 20,43512854);
+		
+		a1.addInteres("futbol");
+		a1.addInteres("tennis");
+		a1.addInteres("golf");
+
+		
 		Alumno a2 = new Alumno("roberto", "rodriguez", 20,43512222);
 		Alumno a3 = new Alumno("matias", "diaz", 20,43512643);
 		
