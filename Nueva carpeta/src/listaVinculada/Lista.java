@@ -6,37 +6,44 @@ import java.util.Iterator;
 public class Lista<T> implements Iterable<Comparable>{
 
 	Nodo<T> head=null;
-	Nodo<T> ultimo=null;
 	int size=0;
-	public Lista() {
+	Comparator orden;
+	public Lista(Comparator c) {
+		this.orden=c;
 		// TODO Auto-generated constructor stub
+	}
+	
+	public void setOrden(Comparator c) {
+		this.orden=c;
+		this.sort();
 	}
 	
 	public int getSize() {
 		return size;
 	}
 	
+	
 	public void add(Comparable data) {
 		// creo un nodo para encapsular
 		Nodo<T> nodo = new Nodo<T>(data);
+		Nodo<T> current=head;
 		//si ultimo null, primero y ultimo se vuelven el nuevo nodo
-		if(ultimo==null) {
+		if(this.head == null) {
 			head=nodo;
-			ultimo=nodo;
-			//si ultimo no es null, el ultimo se vuelve el nuevo nodo.
 		}else {
-			ultimo.setNext(nodo);
-			ultimo=nodo;
-			
+			while(current.getNext() != null) {
+				current=current.getNext();
+			}
+			current.setNext(nodo);
+			this.sort();
 		}
 		size++;
 	}
 	
 	
 	//ordenar dado un comparator
-	public void sort(Comparator c) {
+	private void sort() {
 		Nodo current = head, index = null;
-		 
         Comparable<T> temp;
  
         if (head == null) {
@@ -47,7 +54,7 @@ public class Lista<T> implements Iterable<Comparable>{
                 index = current.getNext();
                 while (index != null) {
                     // si la data del current es mayor que la de index, las roto entre si
-                    if (c.compare(current.getData(), index.getData())>0) {
+                    if (this.orden.compare(current.getData(), index.getData())>0) {
                         temp = current.getData();
                         current.setData(index.getData());
                         index.setData(temp);
@@ -124,7 +131,7 @@ public class Lista<T> implements Iterable<Comparable>{
 	}
 	
 	public String toString() {
-		if(head!=null && ultimo!=null) {
+		if(head !=null) {
 			String info="[ ";
 			Nodo<T> i = head;
 			info += i +", ";

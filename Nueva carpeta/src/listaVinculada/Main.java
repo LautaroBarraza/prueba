@@ -10,7 +10,10 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		Lista<Alumno> listaAlumno= new Lista<Alumno>();
+		
+		ComparadorApellido c1 = new ComparadorApellido();
+		
+		Lista<Alumno> listaAlumno= new Lista<Alumno>(c1);
 		
 		Alumno a1 = new Alumno("juan", "perez", 20,43512854);
 		Alumno a2 = new Alumno("roberto", "rodriguez", 20,43512222);
@@ -18,9 +21,16 @@ public class Main {
 		
 		listaAlumno.add(a1);
 		listaAlumno.add(a2);
+		listaAlumno.add(a2);
+		listaAlumno.add(a2);
 		listaAlumno.add(a3);
+		System.out.println(listaAlumno);
+		
+		
+		System.out.println(listaAlumno.find(a2));
 		
 		System.out.println(listaAlumno);
+		System.out.println(listaAlumno.getSize());
 		
 		System.out.println(listaAlumno.find(a1));
 		
