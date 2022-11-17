@@ -1,10 +1,12 @@
-package alumnos;
+package Comparadores;
 
 import java.util.Comparator;
 
-public class ComparadorDni implements Comparator<Alumno>{
+import alumnos.Alumno;
 
-	public ComparadorDni() {
+public class ComparadorAlumnoDni implements Comparator<Alumno>{
+
+	public ComparadorAlumnoDni() {
 		// TODO Auto-generated constructor stub
 	}
 

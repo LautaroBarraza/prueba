@@ -1,8 +1,8 @@
-package alumnos;
+package universidad;
 
 import java.util.ArrayList;
 
-public class Alumno {
+public class Alumno extends ElementoUniversidad{
 
 	private String nombre,apellido;
 	private int dni,edad;

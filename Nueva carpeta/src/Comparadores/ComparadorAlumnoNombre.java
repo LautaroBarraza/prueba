@@ -1,10 +1,12 @@
-package alumnos;
+package Comparadores;
 
 import java.util.Comparator;
 
-public class ComparadorNombre implements Comparator<Alumno> {
+import alumnos.Alumno;
 
-	public ComparadorNombre() {
+public class ComparadorAlumnoNombre implements Comparator<Alumno> {
+
+	public ComparadorAlumnoNombre() {
 		// TODO Auto-generated constructor stub
 	}
 

@@ -3,31 +3,39 @@ package listaVinculada;
 import java.util.Comparator;
 import java.util.Iterator;
 
-public class Lista<T> implements Iterable<Comparable>{
+public class Lista<T> implements Iterable<T>{
 
 	Nodo<T> head=null;
 	int size=0;
-	Comparator orden;
-	public Lista(Comparator c) {
+	Comparator<T> orden;
+	
+	
+	
+	//constructor
+	public Lista(Comparator<T> c) {
 		this.orden=c;
-		// TODO Auto-generated constructor stub
 	}
 	
-	public void setOrden(Comparator c) {
+	
+	
+	//set orden
+	public void setOrden(Comparator<T> c) {
 		this.orden=c;
 		this.sort();
 	}
-	
+	//obtener tamaño
 	public int getSize() {
 		return size;
 	}
 	
-	
-	public void add(Comparable data) {
+	//agregar nodo y ordenar
+	public void add(T data) {
 		// creo un nodo para encapsular
 		Nodo<T> nodo = new Nodo<T>(data);
+		
+		//recorro la lista y agrego el nodo al final y luego ordeno
 		Nodo<T> current=head;
-		//si ultimo null, primero y ultimo se vuelven el nuevo nodo
+		
 		if(this.head == null) {
 			head=nodo;
 		}else {
@@ -41,11 +49,12 @@ public class Lista<T> implements Iterable<Comparable>{
 	}
 	
 	
-	//ordenar dado un comparator
+	//ordenar dado el comparator de la lista
 	private void sort() {
-		Nodo current = head, index = null;
-        Comparable<T> temp;
+		Nodo<T> current = head, index = null;
+        T temp;
  
+        //recorro la lista y comparo con el siguiente, si es mayor intercambia la data de los nodos
         if (head == null) {
             return;
         }
@@ -66,9 +75,13 @@ public class Lista<T> implements Iterable<Comparable>{
         }
 	}
 	
-	public Comparable delete(int pos) {
+	
+	//borrar un nodo dado una posicion
+	public T delete(int pos) {
 		Nodo<T> current = head;
 		int i=0;
+		
+		//recorro la lista hasta llegar a la pos, luego elimino ese nodo
 		if(pos==0) {
 			head=head.getNext();
 			size--;
@@ -76,7 +89,7 @@ public class Lista<T> implements Iterable<Comparable>{
 		}
 		while(current!=null && i<size) {
 			if(i==pos-1) {
-				Comparable aux = current.getNext().getData();
+				T aux = current.getNext().getData();
 				current.setNext(current.getNext().getNext());
 				size--;
 				return aux;
@@ -89,8 +102,10 @@ public class Lista<T> implements Iterable<Comparable>{
 		
 	}
 	
+	
+	
 	//borrar todas las ocurrencias dado un elemento
-	public void deleteAllOcurrences(Comparable data){
+	public void deleteAllOcurrences(T data){
 		
 		while (head != null && head.getData().equals(data)) {
 			head = head.getNext();
@@ -107,8 +122,10 @@ public class Lista<T> implements Iterable<Comparable>{
 			}
 		}
 	}
+	
+	
 	//encontrar un elemento dado el elemento
-	public Integer find(Comparable data) {
+	public Integer find(T data) {
 		int pos=0;
 		if(head==null) {
 			return null;
@@ -130,6 +147,8 @@ public class Lista<T> implements Iterable<Comparable>{
 		return null;	
 	}
 	
+	
+	//to string
 	public String toString() {
 		if(head !=null) {
 			String info="[ ";
@@ -147,12 +166,11 @@ public class Lista<T> implements Iterable<Comparable>{
 	}
 
 	@Override
-	public Iterator<Comparable> iterator() {
-		// TODO Auto-generated method stub
+	public Iterator<T> iterator() {
 		return new ListaIterable();
 	}
 
-	private class ListaIterable implements Iterator<Comparable>{
+	private class ListaIterable implements Iterator<T>{
 		
 		Nodo<T> actual = null;
 		
@@ -170,7 +188,7 @@ public class Lista<T> implements Iterable<Comparable>{
 		}
 
 		@Override
-		public Comparable next() {
+		public T next() {
 			if (actual == null && head !=null) {
 				actual = head;
 				return head.getData();

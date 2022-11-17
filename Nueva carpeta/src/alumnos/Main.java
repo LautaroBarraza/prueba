@@ -1,7 +1,9 @@
-package listaVinculada;
-import alumnos.*;
-
+package alumnos;
 import java.util.Comparator;
+
+import Comparadores.ComparadorAlumnoApellido;
+import Comparadores.ComparadorInverso;
+import listaVinculada.Lista;
 
 public class Main {
 
@@ -11,9 +13,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		ComparadorApellido c1 = new ComparadorApellido();
+		ComparadorAlumnoApellido c1 = new ComparadorAlumnoApellido();
+		ComparadorInverso<Alumno> c2 = new ComparadorInverso<Alumno>(c1);
 		
-		Lista<Alumno> listaAlumno= new Lista<Alumno>(c1);
+		Lista<Alumno> listaAlumno= new Lista<Alumno>(c2);
 		
 		Alumno a1 = new Alumno("juan", "perez", 20,43512854);
 		Alumno a2 = new Alumno("roberto", "rodriguez", 20,43512222);
@@ -28,7 +31,7 @@ public class Main {
 		
 		
 		System.out.println(listaAlumno.find(a2));
-		
+		listaAlumno.deleteAllOcurrences(a2);
 		System.out.println(listaAlumno);
 		System.out.println(listaAlumno.getSize());
 		

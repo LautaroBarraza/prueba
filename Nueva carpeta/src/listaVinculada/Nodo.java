@@ -2,15 +2,15 @@ package listaVinculada;
 
 public class Nodo<T> {
 
-	Comparable data;
+	T data;
 	Nodo<T> next =null;
-	public Nodo(Comparable data) {
+	public Nodo(T data) {
 		this.data=data;
 	}
-	public Comparable getData() {
+	public T getData() {
 		return data;
 	}
-	public void setData(Comparable data) {
+	public void setData(T data) {
 		this.data = data;
 	}
 	public Nodo<T> getNext() {
