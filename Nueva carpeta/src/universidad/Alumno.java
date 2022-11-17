@@ -4,21 +4,14 @@ import java.util.ArrayList;
 
 public class Alumno extends ElementoUniversidad{
 
-	private String nombre,apellido;
-	private int dni,edad;
+	private String apellido;
+	private int dni;
 	private ArrayList<String> intereses;
-	public Alumno(String nombre,String apellido, int edad, int dni) {
-		this.nombre=nombre;
+	public Alumno(String nombre,String apellido, int dni) {
+		super(nombre);
 		this.apellido=apellido;
 		this.dni=dni;
-		this.edad=edad;
 		this.intereses= new ArrayList<String>();		
-	}
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 	public String getApellido() {
 		return apellido;
@@ -31,12 +24,6 @@ public class Alumno extends ElementoUniversidad{
 	}
 	public void setDni(int dni) {
 		this.dni = dni;
-	}
-	public int getEdad() {
-		return edad;
-	}
-	public void setEdad(int edad) {
-		this.edad = edad;
 	}
 	
 	public int getCantidadAlumnos() {
@@ -54,7 +41,7 @@ public class Alumno extends ElementoUniversidad{
 	}
 	
 	public String toString() {
-		return this.nombre+" "+this.apellido+", ";
+		return this.getNombre()+" "+this.apellido;
 	}
 	
 	public boolean equals(Object obj) {

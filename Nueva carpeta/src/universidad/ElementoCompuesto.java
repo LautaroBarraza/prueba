@@ -6,7 +6,8 @@ import java.util.ArrayList;
 public class ElementoCompuesto extends ElementoUniversidad {
 
 	ArrayList<ElementoUniversidad> elementos;
-	public ElementoCompuesto() {
+	public ElementoCompuesto(String nombre) {
+		super(nombre);
 		this.elementos= new ArrayList<ElementoUniversidad>();
 	}
 	@Override
@@ -16,6 +17,14 @@ public class ElementoCompuesto extends ElementoUniversidad {
 			cantidad += e.getCantidadAlumnos();
 		}
 		return cantidad;
+	}
+	
+	public void addElemento(ElementoUniversidad e) {
+		this.elementos.add(e);
+	}
+
+	public String toString() {
+		return this.getNombre();
 	}
 	
 	

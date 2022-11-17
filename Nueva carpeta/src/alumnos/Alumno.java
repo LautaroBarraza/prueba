@@ -46,7 +46,7 @@ public class Alumno {
 	}
 	
 	public String toString() {
-		return this.nombre+" "+this.apellido+", ";
+		return this.nombre+" "+this.apellido+" "+ this.dni;
 	}
 	
 	public boolean equals(Object obj) {
