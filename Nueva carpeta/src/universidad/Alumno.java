@@ -39,10 +39,18 @@ public class Alumno extends ElementoUniversidad{
 		this.edad = edad;
 	}
 	
+	public int getCantidadAlumnos() {
+		return 1;
+	}
+	
 	public void addInteres(String i) {
 		if(!this.intereses.contains(i)) {
 			this.intereses.add(i);
 		}
+	}
+	
+	public ArrayList<String> getIntereses(){
+		return new ArrayList<String>(intereses);
 	}
 	
 	public String toString() {

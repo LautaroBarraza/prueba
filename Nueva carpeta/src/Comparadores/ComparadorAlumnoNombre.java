@@ -7,7 +7,6 @@ import alumnos.Alumno;
 public class ComparadorAlumnoNombre implements Comparator<Alumno> {
 
 	public ComparadorAlumnoNombre() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

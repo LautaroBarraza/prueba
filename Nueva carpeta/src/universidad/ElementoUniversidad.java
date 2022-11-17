@@ -1,9 +1,11 @@
 package universidad;
 
-public class ElementoUniversidad {
+public abstract class ElementoUniversidad {
 
 	public ElementoUniversidad() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public abstract int getCantidadAlumnos();
 
 }

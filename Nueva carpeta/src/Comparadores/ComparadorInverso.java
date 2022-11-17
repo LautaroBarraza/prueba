@@ -10,7 +10,6 @@ public class ComparadorInverso<T> implements Comparator<T>{
 
 	@Override
 	public int compare(T o1, T o2) {
-		// TODO Auto-generated method stub
 		return c.compare(o1, o2)*-1;
 	}
 
